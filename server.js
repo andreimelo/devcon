@@ -1,7 +1,16 @@
-const app = require('./src/lib/express');
+const {
+    app
+} = require('./src/lib/express');
+const connectDB = require('./config/db');
+const PORT = require('./src/constants/port-express');
 
-const PORT = 3001 || 5000;
+// Connect Database 
+connectDB();
 
 app.get('/', (req, res) => res.send("API Running"));
+
+// Define Routes
+
+app.use('/api/users', require('./routes/api/users'))
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
