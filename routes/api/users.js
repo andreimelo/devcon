@@ -21,5 +21,3 @@ router.post('/', [checkNameIsRequired, checkEmailIsRequired, checkEmailIsInvalid
 });
 
 module.exports = router;
-
-//comment
