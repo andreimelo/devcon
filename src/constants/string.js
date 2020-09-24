@@ -11,6 +11,10 @@ const string = {
         isConnected: "MongoDB is Connected",
         isDisconnected: "MongoDB is Disconnected"
     },
+    auth: {
+        noTokenAuth: "No token, authorization denied",
+        tokenNotValid: "Token is not valid"
+    },
     users: {
         userAlreadyExists: "User already exists",
         userSuccessfullyRegistered: "User has successfully registered",
