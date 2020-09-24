@@ -3,7 +3,7 @@ const {
     express
 } = require('./src/lib/express');
 const connectDB = require('./config/db');
-const PORT = require('./src/constants/port-express');
+const PORT = 8000 || 5000;
 
 // Connect Database 
 connectDB();

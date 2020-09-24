@@ -1,6 +1,6 @@
 const {
     check,
-} = require('express-validator/check');
+} = require('express-validator');
 const string = require('./../../../constants/string');
 
 const checkNameIsRequired = check(string.users.name, string.users.nameIsRequired).not().isEmpty();

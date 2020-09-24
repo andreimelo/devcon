@@ -1,9 +1,19 @@
 const string = {
+    generic: {
+        serverError: "Server Error"
+    },
+    gravatar: {
+        s200: "200",
+        rpg: "pg",
+        dmm: "mm"
+    },
     mongodb: {
         isConnected: "MongoDB is Connected",
         isDisconnected: "MongoDB is Disconnected"
     },
     users: {
+        userAlreadyExists: "User already exists",
+        userSuccessfullyRegistered: "User has successfully registered",
         name: "name",
         email: "email",
         password: "password",
