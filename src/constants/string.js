@@ -13,7 +13,9 @@ const string = {
     },
     auth: {
         noTokenAuth: "No token, authorization denied",
-        tokenNotValid: "Token is not valid"
+        tokenNotValid: "Token is not valid",
+        invalidEmailOrPass: "Invalid email or password",
+        userSuccessfullyLogin: "User has successfully login",
     },
     users: {
         userAlreadyExists: "User already exists",
@@ -22,6 +24,7 @@ const string = {
         email: "email",
         password: "password",
         nameIsRequired: "Name is required",
+        passwordIsRequired: "Password is required",
         emailIsRequired: "Email is required",
         emailInvalidFormat: "Please include a valid email",
         passwordLength: "Please enter a password with 6 or more characters",
