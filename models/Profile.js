@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const string = require('../src/constants/string');
 
 const ProfileSchema = new mongoose.Schema({
     user: {
