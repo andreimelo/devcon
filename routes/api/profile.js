@@ -19,7 +19,7 @@ router.get('/me', auth, async (req, res) => {
 
         if (!profile) {
             return res.status(400).json({
-                msg: string.profile.profileNotExists
+                msg: string.profile.noProfileUser
             })
         };
         res.json(profile);

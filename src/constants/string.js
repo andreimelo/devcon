@@ -12,7 +12,7 @@ const string = {
         isDisconnected: "MongoDB is Disconnected"
     },
     profile: {
-        profileNotExists: "User's profile does not exists"
+        noProfileUser: "There is no profile for this user"
     },
     auth: {
         noTokenAuth: "No token, authorization denied",
