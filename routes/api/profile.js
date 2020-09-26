@@ -22,6 +22,7 @@ router.get('/me', auth, async (req, res) => {
                 msg: string.profile.profileNotExists
             })
         };
+        res.json(profile);
 
     } catch (err) {
         console.error(err.message);
