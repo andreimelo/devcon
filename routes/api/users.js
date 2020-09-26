@@ -9,7 +9,7 @@ const {
     checkEmailIsRequired,
     checkEmailIsInvalid,
     checkPasswordLength
-} = require('../../src/lib/express/validator/users');
+} = require('../../src/lib/express/validator');
 const router = express.Router();
 const gravatar = require('gravatar');
 const jwt = require('jsonwebtoken');

@@ -14,7 +14,7 @@ const {
 const {
     checkEmailIsRequired,
     checkPasswordIsRequired
-} = require('../../src/lib/express/validator/users');
+} = require('../../src/lib/express/validator');
 
 // @route  GET api/auth
 // @desc   User profile via token
