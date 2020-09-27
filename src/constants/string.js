@@ -13,6 +13,7 @@ const string = {
     },
     profile: {
         noProfileUser: "There is no profile for this user",
+        profileNotFound: "Profile not found",
         status: "status",
         skills: "skills",
         statusIsRequired: "Status is required",

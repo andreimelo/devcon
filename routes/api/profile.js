@@ -121,12 +121,17 @@ router.get('/user/:user_id', async (req, res) => {
 
         if (!profile) {
             return res.status(400).json({
-                msg: string.profile.noProfileUser
+                msg: string.profile.profileNotFound
             })
         }
         res.json(profile);
     } catch (err) {
         console.log(err.message);
+        if (err.kind == "ObjectId") {
+            return res.status(400).json({
+                msg: string.profile.profileNotFound
+            })
+        }
         res.status(500).send(string.generic.serverError)
     }
 });
