@@ -14,6 +14,7 @@ const string = {
     profile: {
         noProfileUser: "There is no profile for this user",
         profileNotFound: "Profile not found",
+        profileDeleted: "User profile deleted",
         status: "status",
         skills: "skills",
         statusIsRequired: "Status is required",

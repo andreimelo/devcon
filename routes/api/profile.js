@@ -94,7 +94,7 @@ router.post('/', [auth, [checkStatusIsRequired, checkSkillsIsRequired]], async (
                 $set: profile_fields
             }, {
                 new: true
-            })
+            });
             return res.json(profile);
         }
 
@@ -132,7 +132,34 @@ router.get('/user/:user_id', async (req, res) => {
                 msg: string.profile.profileNotFound
             })
         }
-        res.status(500).send(string.generic.serverError)
+        res.status(500).send(string.generic.serverError);
     }
 });
+
+// @route  DELETE api/profile
+// @desc   Delete profile, user & posts
+// @access Private
+
+router.delete('/', auth, async (req, res) => {
+    try {
+
+        // @todo  - Remove users posts
+        // Remove profile
+        await Profile.findOneAndRemove({
+            user: req.user_id
+        });
+        // Remove user 
+        await Profile.findOneAndRemove({
+            _id: req.user_id
+        });
+        res.json({
+            msg: string.profile.profileDeleted
+        });
+
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send(string.generic.serverError);
+    }
+});
+
 module.exports = router;
