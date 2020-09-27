@@ -108,4 +108,26 @@ router.post('/', [auth, [checkStatusIsRequired, checkSkillsIsRequired]], async (
         res.status(500).send(string.generic.serverError)
     }
 });
+
+// @route  GET api/profile/user/:user_id
+// @desc   Get profile by user ID
+// @access Public
+
+router.get('/user/:user_id', async (req, res) => {
+    try {
+        const profile = await Profile.findOne({
+            user: req.params.user_id
+        }).populate('user', ['name', 'avatar']);
+
+        if (!profile) {
+            return res.status(400).json({
+                msg: string.profile.noProfileUser
+            })
+        }
+        res.json(profile);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send(string.generic.serverError)
+    }
+});
 module.exports = router;
