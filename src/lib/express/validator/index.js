@@ -12,6 +12,10 @@ const checkPasswordLength = check(string.users.password, string.users.passwordLe
 });
 const checkStatusIsRequired = check(string.profile.status, string.profile.statusIsRequired).not().isEmpty();
 const checkSkillsIsRequired = check(string.profile.skills, string.profile.skillsIsRequired).not().isEmpty();
+const checkTitleIsRequired = check(string.profile.title, string.profile.titleIsRequired).not().isEmpty();
+const checkCompanyIsRequired = check(string.profile.company, string.profile.companyIsRequired).not().isEmpty();
+const checkFromIsRequired = check(string.profile.from, string.profile.fromDateIsRequired).not().isEmpty();
+
 module.exports = {
     checkNameIsRequired,
     checkEmailIsRequired,
@@ -19,5 +23,8 @@ module.exports = {
     checkPasswordIsRequired,
     checkPasswordLength,
     checkStatusIsRequired,
-    checkSkillsIsRequired
+    checkSkillsIsRequired,
+    checkTitleIsRequired,
+    checkCompanyIsRequired,
+    checkFromIsRequired
 };

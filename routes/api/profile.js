@@ -9,7 +9,10 @@ const {
 } = require('express-validator');
 const {
     checkStatusIsRequired,
-    checkSkillsIsRequired
+    checkSkillsIsRequired,
+    checkTitleIsRequired,
+    checkCompanyIsRequired,
+    checkFromIsRequired
 } = require('../../src/lib/express/validator');
 const User = require('../../models/User');
 const Profile = require('../../models/Profile');
@@ -160,6 +163,14 @@ router.delete('/', auth, async (req, res) => {
         console.log(err.message);
         res.status(500).send(string.generic.serverError);
     }
+});
+
+// @route  PUT api/profile/experience
+// @desc   Add profile experience 
+// @access Private
+
+router.put('/experience', [auth, [checkTitleIsRequired, checkCompanyIsRequired, checkFromIsRequired]], async (req, res) => {
+
 });
 
 module.exports = router;

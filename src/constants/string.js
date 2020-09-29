@@ -17,8 +17,14 @@ const string = {
         profileDeleted: "User profile deleted",
         status: "status",
         skills: "skills",
+        title: "title",
+        company: "company",
+        from: "from",
         statusIsRequired: "Status is required",
-        skillsIsRequired: "Skills is required"
+        skillsIsRequired: "Skills is required",
+        titleIsRequired: "Title is required",
+        companyIsRequired: "Company is required",
+        fromDateIsRequired: "From date is required"
     },
     auth: {
         noTokenAuth: "No token, authorization denied",
