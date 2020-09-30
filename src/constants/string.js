@@ -20,11 +20,17 @@ const string = {
         title: "title",
         company: "company",
         from: "from",
+        school: "school",
+        degree: "degree",
+        fieldofstudy: "fieldofstudy",
         statusIsRequired: "Status is required",
         skillsIsRequired: "Skills is required",
         titleIsRequired: "Title is required",
         companyIsRequired: "Company is required",
-        fromDateIsRequired: "From date is required"
+        fromDateIsRequired: "From date is required",
+        schoolIsRequired: "School is required",
+        degreeIsRequired: "Degree is required",
+        fieldOfStudyIsRequired: "Field of study is required",
     },
     auth: {
         noTokenAuth: "No token, authorization denied",
