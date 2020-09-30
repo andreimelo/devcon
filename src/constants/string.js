@@ -11,6 +11,9 @@ const string = {
         isConnected: "MongoDB is Connected",
         isDisconnected: "MongoDB is Disconnected"
     },
+    post: {
+        textIsRequired: "Text is required"
+    },
     profile: {
         noProfileUser: "There is no profile for this user",
         profileNotFound: "Profile not found",
@@ -22,6 +25,7 @@ const string = {
         from: "from",
         school: "school",
         degree: "degree",
+        text: "text",
         fieldofstudy: "fieldofstudy",
         statusIsRequired: "Status is required",
         skillsIsRequired: "Skills is required",
@@ -31,6 +35,7 @@ const string = {
         schoolIsRequired: "School is required",
         degreeIsRequired: "Degree is required",
         fieldOfStudyIsRequired: "Field of study is required",
+        githubNotFound: "Github Profile Not Found"
     },
     auth: {
         noTokenAuth: "No token, authorization denied",

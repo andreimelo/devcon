@@ -17,6 +17,8 @@ const {
     checkFieldOfStudyIsRequired,
     checkSchoolIsRequired
 } = require('../../src/lib/express/validator');
+const request = require('request');
+const config = require('config');
 const User = require('../../models/User');
 const Profile = require('../../models/Profile');
 
@@ -112,6 +114,20 @@ router.post('/', [auth, [checkStatusIsRequired, checkSkillsIsRequired]], async (
     } catch (err) {
         console.error(err.message);
         res.status(500).send(string.generic.serverError)
+    }
+});
+
+// @route  GET api/profile
+// @desc   Get all profile
+// @access Public
+
+router.get('/', async (req, res) => {
+    try {
+        const profile = await Profile.find().populate('user', ['name', 'avatar']);
+        res.json(profile);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send(string.generic.serverError);
     }
 });
 
@@ -312,6 +328,41 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
         console.error(err.message);
         res.status(500).send(string.generic.serverError);
     }
-})
+});
+
+// @route  GET api/profile/github/:username
+// @desc   Get user repos from github
+// @access Public
+
+router.get('/github/:username', (req, res) => {
+    try {
+        const options = {
+            uri: `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc&client_id=${config.get('githubClientId')}&client_secret=${config.get('githubSecret')}`,
+            method: "GET",
+            headers: {
+                'user-agent': 'node.js'
+            }
+        }
+        request(options, (err, response, body) => {
+            if (err) console.error(err.message);
+
+            if (response.statusCode !== 200) {
+                return res.status(404).json({
+                    msg: string.profile.githubNotFound
+                });
+            }
+            let parseBody = JSON.parse(body)
+            if (parseBody.length < 0) {
+                res.status(404).json({
+                    msg: string.profile.githubNotFound
+                });
+            }
+            res.json(parseBody);
+        });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send(string.generic.serverError);
+    }
+});
 
 module.exports = router;

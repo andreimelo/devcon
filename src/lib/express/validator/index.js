@@ -20,6 +20,9 @@ const checkFromIsRequired = check(string.profile.from, string.profile.fromDateIs
 const checkSchoolIsRequired = check(string.profile.school, string.profile.schoolIsRequired).not().isEmpty();
 const checkDegreeIsRequired = check(string.profile.degree, string.profile.degreeIsRequired).not().isEmpty();
 const checkFieldOfStudyIsRequired = check(string.profile.fieldofstudy, string.profile.fieldOfStudyIsRequired).not().isEmpty();
+// Post 
+const checkTextIsRequired = check(string.profile.text, string.profile.text).not().isEmpty();
+
 
 module.exports = {
     checkNameIsRequired,
@@ -34,5 +37,6 @@ module.exports = {
     checkFromIsRequired,
     checkSchoolIsRequired,
     checkDegreeIsRequired,
-    checkFieldOfStudyIsRequired
+    checkFieldOfStudyIsRequired,
+    checkTextIsRequired
 };
