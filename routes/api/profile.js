@@ -149,11 +149,11 @@ router.delete('/', auth, async (req, res) => {
         // @todo  - Remove users posts
         // Remove profile
         await Profile.findOneAndRemove({
-            user: req.user_id
+            user: req.user.id
         });
         // Remove user 
-        await Profile.findOneAndRemove({
-            _id: req.user_id
+        await User.findOneAndRemove({
+            _id: req.user.id
         });
         res.json({
             msg: string.profile.profileDeleted
@@ -170,6 +170,48 @@ router.delete('/', auth, async (req, res) => {
 // @access Private
 
 router.put('/experience', [auth, [checkTitleIsRequired, checkCompanyIsRequired, checkFromIsRequired]], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        });
+    }
+
+    const {
+        title,
+        company,
+        location,
+        from,
+        to,
+        current,
+        description
+    } = req.body;
+
+    const newExp = {
+        title,
+        company,
+        location,
+        from,
+        to,
+        current,
+        description
+    }
+
+    try {
+        const profile = await Profile.findOne({
+            user: req.user.id
+        });
+
+
+        profile.experience.unshift(newExp);
+
+        await profile.save();
+
+        res.json(profile);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send(string.generic.serverError);
+    }
 
 });
 
