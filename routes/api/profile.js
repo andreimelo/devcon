@@ -34,7 +34,7 @@ router.get('/me', auth, async (req, res) => {
             return res.status(400).json({
                 msg: string.profile.noProfileUser
             })
-        };
+        }
         res.json(profile);
 
     } catch (err) {
@@ -54,7 +54,7 @@ router.post('/', [auth, [checkStatusIsRequired, checkSkillsIsRequired]], async (
         return res.status(400).json({
             errors: errors.array()
         })
-    };
+    }
 
     const {
         company,
