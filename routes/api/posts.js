@@ -13,7 +13,7 @@ const Post = require('../../models/Post');
 const User = require('../../models/User');
 const string = require('../../src/constants/string');
 
-// @route  post api/posts
+// @route  POST api/posts
 // @desc   Create a post 
 // @access Private
 
@@ -44,8 +44,22 @@ router.post('/', [auth, [checkTextIsRequired]], async (req, res) => {
         console.error(err.message);
         res.status(500).send(string.generic.serverError);
     }
+});
 
+// @route  GET api/posts
+// @desc   Get All post 
+// @access Private
 
+router.get('/', auth, async (req, res) => {
+    try {
+        const posts = await Post.find().sort({
+            date: -1
+        });
+        res.json(posts);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send(string.generic.serverError);
+    }
 });
 
 module.exports = router;
