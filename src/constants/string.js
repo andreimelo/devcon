@@ -1,6 +1,7 @@
 const string = {
     generic: {
-        serverError: "Server Error"
+        serverError: "Server Error",
+        userNotAuthorized: "User not authorized"
     },
     gravatar: {
         s200: "200",
@@ -12,7 +13,9 @@ const string = {
         isDisconnected: "MongoDB is Disconnected"
     },
     post: {
-        textIsRequired: "Text is required"
+        textIsRequired: "Text is required",
+        postNotFound: "Post not found",
+        postRemoved: "Post removed"
     },
     profile: {
         noProfileUser: "There is no profile for this user",
