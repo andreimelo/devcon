@@ -17,7 +17,8 @@ const string = {
         postNotFound: "Post not found",
         postRemoved: "Post removed",
         postAlreadyLiked: "Post already liked",
-        unlikePost: "Unlike post"
+        unlikePost: "Unlike post",
+        commentNotExist: "Comment does not exist",
     },
     profile: {
         noProfileUser: "There is no profile for this user",
