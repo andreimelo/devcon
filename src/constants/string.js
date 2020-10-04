@@ -15,7 +15,9 @@ const string = {
     post: {
         textIsRequired: "Text is required",
         postNotFound: "Post not found",
-        postRemoved: "Post removed"
+        postRemoved: "Post removed",
+        postAlreadyLiked: "Post already liked",
+        unlikePost: "Unlike post"
     },
     profile: {
         noProfileUser: "There is no profile for this user",
