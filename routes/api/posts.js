@@ -66,7 +66,6 @@ router.get('/', auth, async (req, res) => {
 // @desc   Get post by id 
 // @access Private
 
-
 router.get('/:id', auth, async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
@@ -94,7 +93,6 @@ router.get('/:id', auth, async (req, res) => {
 // @route  DELETE api/posts/:id
 // @desc   Delete a post 
 // @access Private
-
 
 router.delete('/:id', auth, async (req, res) => {
     try {
