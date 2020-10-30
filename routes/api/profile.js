@@ -294,7 +294,6 @@ router.put('/education', [auth, [checkSchoolIsRequired, checkDegreeIsRequired, c
             user: req.user.id
         });
 
-
         profile.education.unshift(newEdu);
 
         await profile.save();
